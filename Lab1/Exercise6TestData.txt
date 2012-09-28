@@ -1,0 +1,6 @@
+Hello world this is a test file
+This test file is used to test exerise 6
+exerise 6 reads in a bunch of text
+stores them into an array
+and then prints out any lines containing the pattern
+For my example i'll be using the pattern test
