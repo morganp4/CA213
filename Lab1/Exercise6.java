@@ -5,7 +5,7 @@ class Exercise6 {
             int count=0;
             while(!Console.endOfFile() && count<lines.length) {
                 String line = Console.readString();
-                if(line.indexOf(args[0]) > 0) {    
+                if(line.indexOf(args[0]) > 0) {
                     lines[count] = line;
                     count++;
                 }
