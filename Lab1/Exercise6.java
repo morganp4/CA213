@@ -4,11 +4,14 @@ class Exercise6 {
         if(args.length > 0) {
             int count=0;
             while(!Console.endOfFile() && count<lines.length) {
-                lines[count] = Console.readString();
-                count++;
+                String line = Console.readString();
+                if(line.indexOf(args[0]) > 0) {    
+                    lines[count] = line;
+                    count++;
+                }
             }
             for(int i=0; i<count; i++) {
-                if(lines[i].indexOf(args[0]) > 0) System.out.println(lines[i]);
+                System.out.println(lines[i]);
             }
         } else {
             System.out.println("Syntax Error!");
