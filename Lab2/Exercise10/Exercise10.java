@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Exercise10 {
-    static <T extends Comparable<T>> void sort(T[] s) {
+    static <T extends Comparable<? super T>> void sort(T[] s) {
         for(int i=0; i<s.length; i++) {
             for(int j = i+1; j<s.length; j++) {
                 if(s[i].compareTo(s[j])>0) {
