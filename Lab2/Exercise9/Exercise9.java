@@ -1,7 +1,6 @@
 class Exercise9 {
-
     static void printLines(Object[] objects) {
-        for(Object object : objects ) {
+        for(Object object : objects) {
             System.out.println(object);
         }
     }
