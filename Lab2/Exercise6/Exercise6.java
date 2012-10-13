@@ -12,9 +12,9 @@ class Exercise6 {
     public static void main(String[] args) {
         Integer[] iVec = {2};
         System.out.println(rms(iVec));
-        Double[] dVec = {4.0,5.3};
+        Double[] dVec = {0.5,0.25,0.123};
         System.out.println(rms(dVec));
-        Rational[] rVec = {new Rational(1,2)};
+        Rational[] rVec = {new Rational(1,2), new Rational(1,4), new Rational(1,8)};
         System.out.println(rms(rVec));
     }
 }
