@@ -66,6 +66,9 @@ class Exercise7 implements ActionListener {
                 squares[winCombo[i][1]].getText().equals(squares[winCombo[i][2]].getText()) &&
                 squares[winCombo[i][0]].getText() != ""
             ) {
+                squares[winCombo[i][0]].setBackground(Color.YELLOW);
+                squares[winCombo[i][1]].setBackground(Color.YELLOW);
+                squares[winCombo[i][2]].setBackground(Color.YELLOW);
                 win = true;
             }
         }
