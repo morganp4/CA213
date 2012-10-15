@@ -29,6 +29,14 @@ class Exercise7 implements ActionListener {
         window.setVisible(true);
     }
 
+    void reset() {
+      for(int i=0;i<squares.length;i++) {
+        squares[i].setText("");
+        squares[i].setBackground(Color.lightGray);
+        squares[i].setEnabled(true);
+      }
+    }
+
     public void actionPerformed(ActionEvent a) {
         count++;
         String letter="";
@@ -40,13 +48,13 @@ class Exercise7 implements ActionListener {
 
         if(count % 2 == 0) {
             letter="O";
-            pressedButton.setText(letter);
+            pressedButton.setText("<html><font color=red>" + letter + "</font></html>");
             pressedButton.setBackground(Color.darkGray);
             pressedButton.setEnabled(false);
 
         } else {
             letter="X";
-            pressedButton.setText(letter);
+            pressedButton.setText("<html><font color=blue>" + letter + "</font></html>");
             pressedButton.setBackground(Color.WHITE);
             pressedButton.setEnabled(false);
         }
@@ -64,10 +72,10 @@ class Exercise7 implements ActionListener {
 
         if(win == true) {
             JOptionPane.showMessageDialog(null, letter + " wins the game!");
-            System.exit(0);
+            this.reset();
         } else if(count == 9 && win == false) {
             JOptionPane.showMessageDialog(null, "Tie!");
-            System.exit(0);
+            this.reset();
         }
     }
 
