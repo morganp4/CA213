@@ -30,6 +30,7 @@ class Exercise7 implements ActionListener {
     }
 
     void reset() {
+      count=0;
       for(int i=0;i<squares.length;i++) {
         squares[i].setText("");
         squares[i].setBackground(Color.lightGray);
