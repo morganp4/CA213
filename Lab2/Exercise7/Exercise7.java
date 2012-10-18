@@ -5,6 +5,7 @@ import javax.swing.*;
 class Exercise7 implements ActionListener {
     private JButton[] squares = new JButton[9];
     private int count=0;
+    JButton pressedButton;
 
     Exercise7() {
         JFrame window = new JFrame("X's and O's");
@@ -29,13 +30,20 @@ class Exercise7 implements ActionListener {
         window.setVisible(true);
     }
 
-    void reset() {
+    void reset() { //TODO add gui button for this
       count=0;
       for(int i=0;i<squares.length;i++) {
         squares[i].setText("");
         squares[i].setBackground(Color.lightGray);
         squares[i].setEnabled(true);
       }
+    }
+    
+    void undo() { //TODO add gui button for this
+        count--;
+        pressedButton.setText("");
+        pressedButton.setBackground(Color.lightGray);
+        pressedButton.setEnabled(true);
     }
 
     public void actionPerformed(ActionEvent a) {
@@ -44,7 +52,7 @@ class Exercise7 implements ActionListener {
         boolean win = false;
         int[][] winCombo = new int[][] {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}};
 
-        JButton pressedButton = (JButton)a.getSource();
+        pressedButton = (JButton)a.getSource();
         pressedButton.setFont(new Font("Comic Sans MS", Font.BOLD, 115));
 
         if(count % 2 == 0) {
@@ -52,7 +60,6 @@ class Exercise7 implements ActionListener {
             pressedButton.setText("<html><font color=red>" + letter + "</font></html>");
             pressedButton.setBackground(Color.darkGray);
             pressedButton.setEnabled(false);
-
         } else {
             letter="X";
             pressedButton.setText("<html><font color=blue>" + letter + "</font></html>");
