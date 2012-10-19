@@ -31,14 +31,14 @@ class Exercise7 implements ActionListener {
     }
 
     void reset() { //TODO add gui button for this
-      count=0;
-      for(int i=0;i<squares.length;i++) {
-        squares[i].setText("");
-        squares[i].setBackground(Color.lightGray);
-        squares[i].setEnabled(true);
-      }
+        count=0;
+        for(int i=0; i<squares.length; i++) {
+            squares[i].setText("");
+            squares[i].setBackground(Color.lightGray);
+            squares[i].setEnabled(true);
+        }
     }
-    
+
     void undo() { //TODO add gui button for this
         count--;
         pressedButton.setText("");
