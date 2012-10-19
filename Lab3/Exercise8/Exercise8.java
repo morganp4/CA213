@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Exercise7 {
+class Exercise8 {
     public static void main(String[] args) {
         HashMap<Integer,Integer> words = new HashMap<Integer,Integer>();
         while(!Console.endOfFile()) {
