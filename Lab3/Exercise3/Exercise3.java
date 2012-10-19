@@ -3,9 +3,6 @@ import java.util.*;
 class Exercise3 {
     public static void main(String[] args) {
         ArrayList<Integer> digits = new ArrayList<Integer>();
-        boolean[] results = new boolean[9];
-        String miraculous="";
-        boolean found=true;
 
         for(int i=0; i<10; i++) digits.add(i);
         while(digits.get(0)==0) Collections.shuffle(digits);
