@@ -1,21 +1,14 @@
 import java.util.*;
 
-class Exercise7 {
+class Exercise6 {
     public static void main(String[] args) {
-        HashMap<Integer,Integer> words = new HashMap<Integer,Integer>();
+        TreeMap<String,Integer> data = new TreeMap<String,Integer>();
         while(!Console.endOfFile()) {
-            String word = Console.readToken();
-            int length = word.length();
-            if(!words.containsKey(length)) {
-                words.put(length, 1);
-            } else {
-                words.put(length, (words.get(length)+1));
-            }
+            String club = Console.readToken();
+            int points = Console.readInt();
+            data.put(club, points);
         }
-        System.out.printf("%-15s%s%n", "Word Length", "Frequency");
-        Set<Integer> lengths = words.keySet();
-        for(int length : lengths) {
-            System.out.printf("%5s%15s%n", length, words.get(length));
-        }
+        Set<String> clubs = data.keySet();
+        for(String club : clubs) System.out.println(club + " " + data.get(club));
     }
 }

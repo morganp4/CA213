@@ -2,13 +2,19 @@ import java.util.*;
 
 class Exercise6 {
     public static void main(String[] args) {
-        TreeMap<String,Integer> data = new TreeMap<String,Integer>();
+        HashMap<String,String> numbers = new HashMap<String,String>();
         while(!Console.endOfFile()) {
-            String club = Console.readToken();
-            int points = Console.readInt();
-            data.put(club, points);
+            String name = Console.readToken();
+            String number = Console.readToken();
+            if(number.equals("?")) {
+                if(numbers.containsKey(name)) {
+                    System.out.println(numbers.get(name));
+                } else {
+                    System.out.println("Can't find " + name);
+                }
+            } else {
+                numbers.put(name,number);
+            }
         }
-        Set<String> clubs = data.keySet();
-        for(String club : clubs) System.out.println(club + " " + data.get(club));
     }
 }
