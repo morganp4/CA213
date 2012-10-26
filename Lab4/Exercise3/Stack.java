@@ -15,7 +15,7 @@ class Stack<T> {
     }
 
     boolean push(T t) {
-        if(size>=seq.length) {
+        if(size==seq.length) {
             T[] newSeq = (T[])(new Object[size*2]);
             System.arraycopy(seq,0,newSeq,0,size);
             seq = newSeq;

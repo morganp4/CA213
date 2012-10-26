@@ -1,18 +1,25 @@
 class Exercise5 {
     static boolean isProper(String exp) {
         Stack<Character> stack = new Stack<Character>();
+        boolean proper=true;
+        
         for(int i=0; i<exp.length(); i++) {
             char current = exp.charAt(i);
 
             if(current == '(' || current == '[' || current == '{') stack.push(current);
-            if(!stack.isEmpty()) {
-                if(current == ')' || current == ']' || current == '}') {
-                    char tmp = stack.pop();
-                    if(current-1 != tmp && current-2 !=tmp) stack.push(tmp);
+            if(current == ')' || current == ']' || current == '}') {
+                if(stack.isEmpty()) {
+                    proper=false;
+                } else {
+                    char tmp=stack.pop();
+                    if(current-1 != tmp && current-2 != tmp) {
+                        stack.push(tmp);
+                        proper=false;
+                    }
                 }
             }
         }
-        return (stack.isEmpty());
+        return (proper && stack.isEmpty());
     }
 
     public static void main(String[] args) {
