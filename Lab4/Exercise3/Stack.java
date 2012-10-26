@@ -1,25 +1,35 @@
-import java.util.*;
-
 class Stack<T> {
-    private ArrayList<T> stack;
+    private T[] seq;
+    private int size = 0;
 
     Stack() {
-        stack = new ArrayList<T>();
+        this(2);
     }
 
-    boolean push(T item) {
-        return(stack.add(item));
-    }
-
-    T pop() {
-        if(!isEmpty()) {
-            return(stack.remove(stack.size()-1));
-        } else {
-            return null;
-        }
+    Stack(int n) {
+        seq = (T[])(new Object[n]);
     }
 
     boolean isEmpty() {
-        return (stack.size()==0);
+        return (size==0);
+    }
+
+    boolean push(T t) {
+        if(size>=seq.length) {
+            T[] newSeq = (T[])(new Object[size*2]);
+            System.arraycopy(seq,0,newSeq,0,size);
+            seq = newSeq;
+        }
+        seq[size] = t;
+        size++;
+        return true;
+    }
+
+    T pop() {
+        if(isEmpty()) return null;
+        else {
+            size--;
+            return seq[size];
+        }
     }
 }
