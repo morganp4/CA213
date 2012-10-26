@@ -1,21 +1,25 @@
 import java.util.*;
 
 class Stack<T> {
-    private ArrayList<T> Items = new ArrayList<T>();
-    private int size=0;
-
-    boolean isEmpty() {
-        return (size==0);
+    private ArrayList<T> stack;
+    
+    Stack() {
+        stack = new ArrayList<T>();
     }
-
-    boolean push (T item) {
-        size++;
-        return(Items.add(item));
+    
+    boolean push(T item) {
+        return(stack.add(item));
     }
 
     T pop() {
-        size--;
-        return(Items.get(size));
+        if(!isEmpty()) {
+            return(stack.remove(stack.size()-1));
+        } else {
+            return null;
+        } 
     }
 
+    boolean isEmpty() {
+        return (stack.size()==0);
+    }
 }
