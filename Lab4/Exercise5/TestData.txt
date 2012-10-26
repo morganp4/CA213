@@ -1,0 +1,5 @@
+a(bc)[d]e
+a(b{cd})e[]fg
+}{[]
+a(bc)[d}
+a[b(b{cd})
