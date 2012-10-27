@@ -4,7 +4,7 @@ class Stack<T> {
     Stack() {
         this(2);
     }
-    
+
     @SuppressWarnings("unchecked")
     Stack(int n) {
         seq = (T[])(new Object[n]);
