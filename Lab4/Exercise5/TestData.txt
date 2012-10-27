@@ -1,9 +1,0 @@
-{(})}
-())
-(a)
-a(bc)[d]e
-a(b{cd}e[]fg)
-{[]
-a(bc)[d}e
-[a(b{cd})
-a{ca}}a)
