@@ -141,14 +141,14 @@ class PastDates {
         while(!Console.endOfFile()) {
             Date temp = new Date();
             temp.get();
-            dates.push(temp);
+            if(temp.lte(today)) {
+                dates.push(temp);
+            }
         }
 
         while(!dates.isEmpty()) {
-            Date temp = (Date) dates.pop();
-            if(temp.lte(today)) {
-                temp.put();
-            }
+            Printable temp = dates.pop();
+            temp.put();
         }
 
     }
