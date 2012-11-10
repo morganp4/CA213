@@ -1,17 +1,17 @@
 class Queue<T> {
 
     T[] seq;
-    private int size = 0; 
+    private int size = 0;
     private int head = 0;
-    private int tail = 0; 
+    private int tail = 0;
 
     @SuppressWarnings("unchecked")
-    Queue(int n) { 
+    Queue(int n) {
         seq = (T[])(new Object[n]);
     }
 
     Queue() {
-        this(2); 
+        this(2);
     }
 
     boolean isEmpty() {

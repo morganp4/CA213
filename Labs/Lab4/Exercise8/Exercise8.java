@@ -7,7 +7,7 @@ class Exercise8 {
         queue.deq();
         queue.deq();
         queue.enq("forth");
-        
+
         while(!queue.isEmpty()) {
             System.out.println(queue.deq());
         }
