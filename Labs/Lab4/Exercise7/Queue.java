@@ -1,16 +1,17 @@
-class Queue<T> { // bounded
+class Queue<T> {
 
-    T[] seq; // the sequence
-    private int size = 0; // size of sequence
+    T[] seq;
+    private int size = 0; 
     private int head = 0;
-    private int tail = 0; // front and rear
+    private int tail = 0; 
 
-    Queue(int n) { // n>0
+    @SuppressWarnings("unchecked")
+    Queue(int n) { 
         seq = (T[])(new Object[n]);
     }
 
     Queue() {
-        this(3);   // =
+        this(2); 
     }
 
     boolean isEmpty() {
@@ -20,6 +21,7 @@ class Queue<T> { // bounded
     boolean enq(T t) {
         if (!(size<seq.length)) {
             int oldLen = seq.length;
+            @SuppressWarnings("unchecked")
             T[] newSeq = (T[])(new Object[oldLen*2]);
             if(head < tail) {
                 System.arraycopy(seq,head,newSeq,0,head-tail);

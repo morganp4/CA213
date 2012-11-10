@@ -1,12 +1,16 @@
 class Exercise7 {
     public static void main(String[] args) {
         Queue<String> queue = new Queue<String>();
-        while(!Console.endOfFile()) {
-            queue.enq(Console.readToken());
-        }
+        queue.enq("first");
+        queue.enq("second");
+        queue.enq("third");
+        queue.deq();
+        queue.deq();
+        queue.enq("forth");
+        
         while(!queue.isEmpty()) {
-            System.out.print(queue.deq() + " ");
+            System.out.println(queue.deq());
         }
-        System.out.println();
+
     }
 }
