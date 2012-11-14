@@ -9,17 +9,21 @@ class Exercise5 {
             if(current == '(' || current == '[' || current == '{') stack.push(current);
             if(current == ')' || current == ']' || current == '}') {
                 if(stack.isEmpty()) {
-                    proper=false;
+                    return false;
                 } else {
                     char tmp=stack.pop();
                     if(current-1 != tmp && current-2 != tmp) {
                         stack.push(tmp);
-                        proper=false;
+                        return false;
                     }
                 }
             }
         }
-        return (proper && stack.isEmpty());
+        if(stack.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static void main(String[] args) {
