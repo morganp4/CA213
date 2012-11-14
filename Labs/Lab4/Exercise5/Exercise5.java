@@ -1,8 +1,6 @@
 class Exercise5 {
     static boolean isProper(String exp) {
         Stack<Character> stack = new Stack<Character>();
-        boolean proper=true;
-
         for(int i=0; i<exp.length(); i++) {
             char current = exp.charAt(i);
 
