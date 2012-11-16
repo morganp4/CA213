@@ -7,6 +7,8 @@ class Exercise3 {
     }
 
     public static void main(String[] args) {
-        System.out.println(rev("test"));
+        System.out.println("Input a String to reverse");
+        String input = Console.readString();
+        System.out.println(rev(input));
     }
 }

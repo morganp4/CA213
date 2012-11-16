@@ -10,7 +10,8 @@ class Exercise5 {
     }
 
     public static void main(String[] args) {
-        String word = "navan";
+        System.out.println("Input a word");
+        String word = Console.readString();
         if(isPalindrome(word)) {
             System.out.println(word + " is palindrome");
         } else {
