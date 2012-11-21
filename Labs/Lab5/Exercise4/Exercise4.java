@@ -1,11 +1,10 @@
 class Exercise4 {
     static void writeNum(int n) {
-        String w = ""+n;
-        if(w.length() < 4) {
-            System.out.print(w);
+        if(n < 1000) {
+            System.out.print(n);
         } else {
-            writeNum(Integer.parseInt(w.substring(0,w.length()-3)));
-            System.out.print("," + w.substring(w.length()-3));
+            writeNum(n/1000);
+            System.out.printf(",%03d", n%1000);
         }
     }
 
