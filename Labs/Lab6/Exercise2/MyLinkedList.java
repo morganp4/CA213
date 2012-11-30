@@ -2,7 +2,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 class MyLinkedList<T> {
-    
+
     private static class Node<T> {
         private T item;
         private Node<T> next;
@@ -11,15 +11,15 @@ class MyLinkedList<T> {
             next = next0;
         }
     }
-    
+
     private Node<T> head = null;
     private Node<T> tail = null;
     private int numItems = 0;
-    
+
     public int size() {
         return numItems;
     }
-    
+
     public T get(int i) {
         if(i<0||i>numItems) throw new IndexOutOfBoundsException();
         Node<T> p = head;
@@ -30,7 +30,7 @@ class MyLinkedList<T> {
         }
         return p.item;
     }
-    
+
     public boolean add(T t) {
         Node<T> tNode = new Node<T>(t,null);
         if(tail!=null) {
@@ -60,8 +60,8 @@ class MyLinkedList<T> {
             }
         }
         numItems++;
-    } 
-    
+    }
+
     public int indexOf(Object t) {
         Node<T> p = head;
         int pIndex = 0;
@@ -72,7 +72,7 @@ class MyLinkedList<T> {
         }
         return -1;
     }
-    
+
     void addFirst(T t) {
         Node<T> tNode = new Node<T>(t,null);
         if(head==null) {
@@ -84,11 +84,11 @@ class MyLinkedList<T> {
         }
         numItems++;
     }
-    
+
     T removeLast() {
         if(head==null) {
             throw new NoSuchElementException();
-        } 
+        }
         T result = tail.item;
         tail = tail.next;
         if(tail == null) {
