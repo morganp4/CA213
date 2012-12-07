@@ -3,7 +3,7 @@ class Exercise2 {
         MyTreeSet<Integer> items = new MyTreeSet<Integer>();
         items.add(3);
         items.add(5);
-        items.add(2); 
+        items.add(2);
         items.add(1);
         items.add(4);
         items.add(7);

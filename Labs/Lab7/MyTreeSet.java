@@ -50,16 +50,16 @@ class MyTreeSet<T extends Comparable<T>> {
             return p.item;
         }
     }
-    
+
     public int height() {
         return height(root);
     }
-    
+
     private int height(Node<T> p) {
         if(p == null) return 0;
         return 1 + Math.max(height(p.left), height(p.right));
     }
-    
+
     ArrayList<T> breadthFirst() {
         ArrayList<T> result = new ArrayList<T>();
         Queue<Node<T>> myNodes = new Queue<Node<T>>();
