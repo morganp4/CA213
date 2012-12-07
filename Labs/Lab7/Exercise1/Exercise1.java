@@ -1,10 +1,16 @@
+import java.util.*;
+
 class Exercise1 {
     public static void main(String[] args) {
-        MyTreeSet<Integer> items = new MyTreeSet<Integer>();
-        items.add(3);
-        items.add(5);
-        items.add(1);
-        items.add(4);
-        System.out.println(items.first());
+        MyArrayList<String> ws = new MyArrayList<String>();
+        ws.addFirst("cat");
+        ws.addFirst("dog");
+        ws.addFirst("cow");
+        ws.addFirst("dog");
+        ws.addFirst("pig");
+        System.out.println(ws.indexOf("dog"));
+        ws.remove(ws.indexOf("dog"));
+        System.out.println(ws.indexOf("dog"));
+        System.out.println(ws.indexOf("hen"));
     }
 }
