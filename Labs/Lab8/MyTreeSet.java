@@ -67,7 +67,7 @@ class MyTreeSet<T extends Comparable<T>> {
         while(!myNodes.isEmpty()) {
             Node<T> p = myNodes.deq();
             if(p!=null) {
-                if(hi.compareTo(p.item) >= 0 && lo.compareTo(p.item) <= 0) {
+                if(hi.compareTo(p.item) > 0 && lo.compareTo(p.item) < 0) {
                     result++;
                 }
                 myNodes.enq(p.left);
