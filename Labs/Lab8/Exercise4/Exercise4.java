@@ -8,5 +8,6 @@ class Exercise4 {
         items.add(6);
         items.add(8);
         System.out.println(items.count(1, 6));
+        System.out.println(items.darrenCount(1, 6));
     }
 }
