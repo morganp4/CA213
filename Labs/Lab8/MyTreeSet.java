@@ -60,16 +60,6 @@ class MyTreeSet<T extends Comparable<T>> {
         return 1 + Math.max(height(p.left), height(p.right));
     }
 
-    int recursiveCount(T lo, T hi) {
-        return darrenCount(root, lo, hi);
-    }
-
-    int recursiveCount(Node <T> p, T lo, T hi) {
-    		if(p == null) return 0;
-    		else if(hi.compareTo(p.item) > 0 && lo.compareTo(p.item) < 0) return 1 + recursiveCount(p.left, lo, hi) + recursiveCount(p.right, lo, hi);
-    		else return recursiveCount(p.left, lo, hi) + recursiveCount(p.right, lo, hi);
-    }
-
     int count(T lo, T hi) {
         int result = 0;
         Queue<Node<T>> myNodes = new Queue<Node<T>>();
@@ -87,6 +77,28 @@ class MyTreeSet<T extends Comparable<T>> {
         return result;
     }
 
+    private void inOrder(Node<T> p, ArrayList<T> items) {
+        if(p!=null) {
+            inOrder(p.left, items);
+            items.add(p.item);
+            inOrder(p.right, items);
+        }
+    }
+
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        toString(result, root);
+        return "[ " + result.toString().substring(0,result.toString().length()-2) + " ]";
+    }
+
+    private void toString( StringBuilder sb, Node<T> p ) {
+        if( p != null ) {
+            toString( sb, p.left );
+            sb.append(p.item + ", ");
+            toString( sb, p.right );
+        }
+    }
+
     ArrayList<T> breadthFirst() {
         ArrayList<T> result = new ArrayList<T>();
         Queue<Node<T>> myNodes = new Queue<Node<T>>();
@@ -101,17 +113,17 @@ class MyTreeSet<T extends Comparable<T>> {
         }
         return result;
     }
-    
+
     public T pollFirst() {
-    	Node <T> p = root;
-    	if(p.left == null) {
-    		root = p.right;
-    		return p.item;
-    	}
-    	while(p.left.left != null) {
-    		p = p.left;
-    	}
-    	T tmp = p.left.item;
+        Node <T> p = root;
+        if(p.left == null) {
+            root = p.right;
+            return p.item;
+        }
+        while(p.left.left != null) {
+            p = p.left;
+        }
+        T tmp = p.left.item;
         numItems--;
         if(p.left == null && p.right == null) {
             p = null;
