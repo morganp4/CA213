@@ -4,10 +4,9 @@ class Exercise4 {
         items.add(3);
         items.add(5);
         items.add(1);
-        items.add(2);
         items.add(4);
-        items.add(7);
         items.add(6);
-        System.out.println(items.count(1,5));
+        items.add(8);
+        System.out.println(items.count(1, 6));
     }
 }
