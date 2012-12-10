@@ -60,6 +60,23 @@ class MyTreeSet<T extends Comparable<T>> {
         return 1 + Math.max(height(p.left), height(p.right));
     }
 
+    int count(T lo, T hi) {
+        int result = 0;
+        Queue<Node<T>> myNodes = new Queue<Node<T>>();
+        myNodes.enq(root);
+        while(!myNodes.isEmpty()) {
+            Node<T> p = myNodes.deq();
+            if(p!=null) {
+                if(hi.compareTo(p.item) > 0 && lo.compareTo(p.item) < 0) {
+                    result++;
+                }
+                myNodes.enq(p.left);
+                myNodes.enq(p.right);
+            }
+        }
+        return result;
+    }
+
     ArrayList<T> breadthFirst() {
         ArrayList<T> result = new ArrayList<T>();
         Queue<Node<T>> myNodes = new Queue<Node<T>>();
