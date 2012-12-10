@@ -60,14 +60,14 @@ class MyTreeSet<T extends Comparable<T>> {
         return 1 + Math.max(height(p.left), height(p.right));
     }
 
-    int darrenCount(T lo, T hi) {
+    int recursiveCount(T lo, T hi) {
         return darrenCount(root, lo, hi);
     }
 
-    int darrenCount(Node <T> p, T lo, T hi) {
+    int recursiveCount(Node <T> p, T lo, T hi) {
     		if(p == null) return 0;
-    		else if(hi.compareTo(p.item) > 0 && lo.compareTo(p.item) < 0) return 1 + darrenCount(p.left, lo, hi) + darrenCount(p.right, lo, hi);
-    		else return darrenCount(p.left, lo, hi) + darrenCount(p.right, lo, hi);
+    		else if(hi.compareTo(p.item) > 0 && lo.compareTo(p.item) < 0) return 1 + recursiveCount(p.left, lo, hi) + recursiveCount(p.right, lo, hi);
+    		else return recursiveCount(p.left, lo, hi) + recursiveCount(p.right, lo, hi);
     }
 
     int count(T lo, T hi) {
