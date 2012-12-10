@@ -74,4 +74,25 @@ class MyTreeSet<T extends Comparable<T>> {
         }
         return result;
     }
+    
+    public T pollFirst() {
+    	Node <T> p = root;
+    	if(p.left == null) {
+    		root = p.right;
+    		return p.item;
+    	}
+    	while(p.left.left != null) {
+    		p = p.left;
+    	}
+    	T tmp = p.left.item;
+        numItems--;
+        if(p.left == null && p.right == null) {
+            p = null;
+        } else if(p.right==null) {
+            p = p.left;
+        } else {
+            //hard case here not sure how to do it.
+        }
+        return tmp;
+    }
 }
