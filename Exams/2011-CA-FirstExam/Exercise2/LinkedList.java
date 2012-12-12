@@ -2,13 +2,13 @@ class LinkedList<T> {
     private class Node<T> {
         private T item;
         private Node<T> next;
-        
+
         Node(T item0, Node<T> next0) {
             item = item0;
             next = next0;
         }
     }
-    
+
     private Node<T> head = null;
     private Node<T> tail = null;
     private int numItems = 0;
@@ -16,19 +16,20 @@ class LinkedList<T> {
     public int size() {
         return numItems;
     }
-    
+
     public T get(int i) {
         if(i<0|i>numItems) {
             throw new IndexOutOfBoundsException();
         }
-        Node<T> p = head; int pIndex = 0;
+        Node<T> p = head;
+        int pIndex = 0;
         while(pIndex != i) {
             p = p.next;
             pIndex++;
         }
         return p.item;
     }
-    
+
     public boolean add(T t) {
         Node<T> tNode = new Node<T>(t,null);
         if(tail != null) tail.next = tNode;
@@ -37,11 +38,12 @@ class LinkedList<T> {
         numItems++;
         return true;
     }
-    
+
     public void add(int i, T t) {
         if(i<0|i>numItems) {
             throw new IndexOutOfBoundsException();
-        } if(i==0) {
+        }
+        if(i==0) {
             head = new Node<T>(t,head);
             if(tail==null) tail = head;
         } else {
@@ -54,9 +56,9 @@ class LinkedList<T> {
             p.next = new Node<T>(t,p.next);
             if(tail==p) tail = p.next;
         }
-        numItems++;    
+        numItems++;
     }
-    
+
     public boolean contains(T t) {
         Node<T> p = head;
         while(p!=null) {
@@ -67,7 +69,7 @@ class LinkedList<T> {
         }
         return false;
     }
-    
+
     @Override
     public String toString() {
         String result="";

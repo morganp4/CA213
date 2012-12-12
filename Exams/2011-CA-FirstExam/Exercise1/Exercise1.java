@@ -12,8 +12,8 @@ class Exercise1 {
                 items.add(input);
             }
         }
-        
-        for(int i=0;i<items.size();i++) {
+
+        for(int i=0; i<items.size(); i++) {
             if(!items.contains(i)) {
                 System.out.println(i);
                 break;
