@@ -1,8 +1,6 @@
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 class MyLinkedList<T> {
-
     private static class Node<T> {
         private T item;
         private Node<T> next;
@@ -21,7 +19,9 @@ class MyLinkedList<T> {
     }
 
     public T get(int i) {
-        if(i<0||i>numItems) throw new IndexOutOfBoundsException();
+        if(i<0|i>numItems) {
+            throw new IndexOutOfBoundsException();
+        }
         Node<T> p = head;
         int pIndex = 0;
         while(pIndex!=i) {
@@ -32,40 +32,38 @@ class MyLinkedList<T> {
     }
 
     public boolean add(T t) {
-        Node<T> tNode = new Node<T>(t,null);
-        if(tail!=null) {
-            tail.next = tNode;
-        } else {
-            head = tNode;
-        }
+        Node<T> tNode = new Node<T>(t,null); // new tail node
+        if (tail!=null) tail.next = tNode;
+        else head = tNode;
         tail = tNode;
         numItems++;
-        return true;
+        return true; // for compatibility reasons only
     }
 
+
     public void add(int i, T t) {
-        if(i<0||i>numItems) throw new IndexOutOfBoundsException();
-        if(i==0) {
+        if (i<0 || i>numItems) throw new IndexOutOfBoundsException();
+        if (i==0) { // insert at front
             head = new Node<T>(t,head);
-        } else {
+            if (tail==null) tail = head;
+        } else { // not at front
             Node<T> p = head;
-            int pIndex = 0;
-            while(pIndex != i - 1) {
-                p=p.next;
+            int pIndex = 0; // Node p is at position pIndex
+            while (pIndex!=i-1) {
+                p = p.next;
                 pIndex++;
-            }
-            p.next = new Node<T>(t,p.next);
-            if(tail==p) {
-                tail = p.next;
-            }
+            } // node p at index i-1
+            p.next = new Node<T>(t,p.next); // insert t following p
+            if (tail==p) tail = p.next;
         }
         numItems++;
     }
 
-    public int indexOf(Object t) {
+
+    public int indexOf(T t) {
         Node<T> p = head;
-        int pIndex = 0;
-        while(p != null) {
+        int pIndex=0;
+        while(p!=null) {
             if(p.item.equals(t)) return pIndex;
             p = p.next;
             pIndex++;
@@ -75,7 +73,7 @@ class MyLinkedList<T> {
 
     void addFirst(T t) {
         Node<T> tNode = new Node<T>(t,null);
-        if(head==null) {
+        if(head == null) {
             head = tNode;
             tail = tNode;
         } else {
@@ -90,12 +88,21 @@ class MyLinkedList<T> {
             throw new NoSuchElementException();
         }
         T result = tail.item;
-        tail = tail.next;
+
+        Node<T> previous = null;
+        Node<T> p = head;
+        while(p.next!=null) {
+            previous = p;
+            p = p.next;
+        }
+
+        tail = previous;
         if(tail == null) {
             head = null;
         } else {
             tail.next = null;
         }
+        numItems--;
         return result;
     }
 }

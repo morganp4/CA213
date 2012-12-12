@@ -76,14 +76,14 @@ class MyTreeSet<T extends Comparable<T>> {
         }
         return result;
     }
-    
-	private void inOrder(Node<T> p, ArrayList<T> items) {
-		if (p!=null) {
-			inOrder(p.left, items);
-			items.add(p.item);
-			inOrder(p.right, items);
-		}
-	}
+
+    private void inOrder(Node<T> p, ArrayList<T> items) {
+        if (p!=null) {
+            inOrder(p.left, items);
+            items.add(p.item);
+            inOrder(p.right, items);
+        }
+    }
 
     ArrayList<T> preOrder() {
         ArrayList<T> result = new ArrayList<T>();
