@@ -7,6 +7,11 @@ class Exercise7 {
         queue.deq();
         queue.deq();
         queue.enq("forth");
+        queue.enq("fifth");
+        queue.enq("sixth");
+        queue.deq();
+        queue.enq("seventh");
+        queue.enq("eigth");
 
         while(!queue.isEmpty()) {
             System.out.println(queue.deq());

@@ -19,18 +19,17 @@ class Queue<T> {
     }
 
     boolean enq(T t) {
-        if (!(size<seq.length)) {
-            int oldLen = seq.length;
+        if (size==seq.length) {
             @SuppressWarnings("unchecked")
-            T[] newSeq = (T[])(new Object[oldLen*2]);
+            T[] newSeq = (T[])(new Object[seq.length*2]);
             if(head < tail) {
                 System.arraycopy(seq,head,newSeq,0,head-tail);
             } else {
-                System.arraycopy(seq,head,newSeq,0,oldLen-head);
-                System.arraycopy(seq,0,newSeq,oldLen-head,tail);
+                System.arraycopy(seq,head,newSeq,0,seq.length-head);
+                System.arraycopy(seq,0,newSeq,seq.length-head,tail);
             }
             head=0;
-            tail=oldLen;
+            tail=seq.length;
             seq = newSeq;
         }
         seq[tail] = t;
