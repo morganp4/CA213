@@ -8,7 +8,7 @@ class StringSet {
             next = next0;
         }
     }
-    private Node head = new Node(null,null);
+    private Node head = null;
     private int numItems;
 
     int size() {
@@ -58,7 +58,7 @@ class StringSet {
 
     void put() {
         Node p = head;
-        while(p.item!=null) {
+        while(p!=null) {
             System.out.print(p.item + " ");
             p = p.next;
         }
