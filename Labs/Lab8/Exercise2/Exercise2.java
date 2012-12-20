@@ -1,6 +1,6 @@
 class Exercise2 {
     public static void main(String[] args) {
-        MyTreeSet<Integer> items = new MyTreeSet<Integer>();
+        TreeSet<Integer> items = new TreeSet<Integer>();
         items.add(3);
         items.add(5);
         items.add(2);
